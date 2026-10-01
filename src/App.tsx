@@ -887,7 +887,7 @@ async function handleGenerateAiDigest() {
       >
         <span>
   {(() => {
-    const matchedCustomer = data.customers.find((item) => {
+    const matchedCustomer = data?.customers.find((item) => {
       const record = item as {
         customerId?: string;
         id?: string;
@@ -920,7 +920,7 @@ async function handleGenerateAiDigest() {
         >
           <span>
   {(() => {
-    const matchedCustomer = data.customers.find((item) => {
+   const matchedCustomer = data?.customers.find((item) => {
       const record = item as {
         customerId?: string;
         id?: string;
@@ -938,7 +938,8 @@ async function handleGenerateAiDigest() {
       ? `${matchedCustomer.name} (${customer.customerId})`
       : customer.customerId;
   })()}
-</span>
+</span>git status
+
           <strong>{customer.ticketCount} tickets</strong>
         </div>
       ))}

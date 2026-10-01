@@ -880,7 +880,7 @@ function createRepeatContactInsight(
   }
 
   const customerNameMap = new Map(
-    customers.map((customer) => [customer.customerId, customer.name])
+    customers.map((customer) => [customer.id, customer.name])
   );
 
   const uniqueCustomers = customerTicketCounts.size;
@@ -978,6 +978,7 @@ export function calculateDashboardMetrics(
       currentWeekTickets: [],
 
       productPatterns: [],
+      repeatContactCustomerList: [],
 
 
 
