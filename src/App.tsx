@@ -938,7 +938,7 @@ async function handleGenerateAiDigest() {
       ? `${matchedCustomer.name} (${customer.customerId})`
       : customer.customerId;
   })()}
-</span>git status
+</span>
 
           <strong>{customer.ticketCount} tickets</strong>
         </div>
