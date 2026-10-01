@@ -1001,3 +1001,370 @@ td strong {
     padding: 13px;
   }
 }
+
+.repeat-contact-card {
+  margin-bottom: 15px;
+  padding: 22px 24px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 91%);
+  box-shadow: 0 5px 16px rgb(34 48 74 / 4%);
+}
+
+.repeat-contact-card .panel-heading {
+  margin-bottom: 16px;
+}
+
+.repeat-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.repeat-contact-grid > div {
+  display: grid;
+  gap: 5px;
+  padding: 15px;
+  border: 1px solid #e7ebf2;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.repeat-contact-grid span {
+  color: #737d8c;
+  font-size: 12px;
+}
+
+.repeat-contact-grid strong {
+  color: #263244;
+  font-size: 22px;
+}
+
+.repeat-contact-card .trust-note {
+  margin: 14px 0 0;
+  color: #737d8c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .repeat-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.repeat-contact-customer-list {
+  margin-top: 18px;
+  border-top: 1px solid #edf0f5;
+}
+
+.repeat-contact-list-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0 10px;
+}
+
+.repeat-contact-list-heading strong {
+  color: #263244;
+  font-size: 13px;
+}
+
+.repeat-contact-list-heading span {
+  color: #8a95a5;
+  font-size: 11px;
+}
+
+.repeat-contact-customer-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-top: 1px solid #edf0f5;
+  background: #f8fafc;
+}
+
+.repeat-contact-customer-row span {
+  color: #46546b;
+  font-size: 12px;
+}
+
+.repeat-contact-customer-row strong {
+  color: #263244;
+  font-size: 12px;
+}
+
+.repeat-contact-customer-list {
+  margin-top: 18px;
+  border-top: 1px solid #edf0f5;
+}
+
+.repeat-contact-customer-list summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.repeat-contact-customer-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.repeat-contact-customer-list summary > span:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.repeat-contact-customer-list summary strong {
+  color: #263244;
+  font-size: 13px;
+}
+
+.repeat-contact-customer-list summary small {
+  color: #8a95a5;
+  font-size: 11px;
+}
+
+.repeat-contact-toggle {
+  color: #dd5838;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.repeat-contact-list {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 8px;
+}
+
+.repeat-contact-customer-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border: 1px solid #edf0f5;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.repeat-contact-customer-row span {
+  color: #46546b;
+  font-size: 12px;
+}
+
+.repeat-contact-customer-row strong {
+  color: #263244;
+  font-size: 12px;
+}
+.repeat-contact-list-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 0 9px;
+}
+
+.repeat-contact-list-heading strong {
+  color: #263244;
+  font-size: 13px;
+}
+
+.repeat-contact-list-heading span {
+  color: #8a95a5;
+  font-size: 11px;
+}
+
+.repeat-contact-more {
+  margin-top: 8px;
+}
+
+.repeat-contact-more summary {
+  padding: 8px 0;
+  color: #dd5838;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.repeat-contact-list {
+  display: grid;
+  gap: 6px;
+  padding-top: 5px;
+}
+.repeat-contact-more {
+  margin-top: 8px;
+}
+
+.repeat-contact-more summary {
+  list-style: none;
+  padding: 8px 0;
+  color: #dd5838;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.repeat-contact-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.show-less-label {
+  display: none;
+}
+
+.repeat-contact-more[open] .show-more-label {
+  display: none;
+}
+
+.repeat-contact-more[open] .show-less-label {
+  display: inline;
+}
+
+.repeat-contact-list {
+  display: grid;
+  gap: 6px;
+  padding-top: 5px;
+}
+
+/* ===== Repeat Contact - Final ===== */
+
+.repeat-contact-card {
+  margin-bottom: 15px;
+  padding: 22px 24px;
+  border: 1px solid #e0e6ef;
+  border-radius: 14px;
+  background: rgb(255 255 255 / 91%);
+  box-shadow: 0 5px 16px rgb(34 48 74 / 4%);
+}
+
+.repeat-contact-card .panel-heading {
+  margin-bottom: 16px;
+}
+
+.repeat-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.repeat-contact-grid > div {
+  display: grid;
+  gap: 5px;
+  padding: 15px;
+  border: 1px solid #e7ebf2;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.repeat-contact-grid span {
+  color: #737d8c;
+  font-size: 12px;
+}
+
+.repeat-contact-grid strong {
+  color: #263244;
+  font-size: 22px;
+}
+
+/* Customer list */
+
+.repeat-contact-customer-list {
+  margin-top: 18px;
+  border-top: 1px solid #edf0f5;
+}
+
+.repeat-contact-list-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0 10px;
+}
+
+.repeat-contact-list-heading strong {
+  color: #263244;
+  font-size: 13px;
+}
+
+.repeat-contact-list-heading span {
+  color: #8a95a5;
+  font-size: 11px;
+}
+
+.repeat-contact-customer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 12px;
+  border: 1px solid #edf0f5;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.repeat-contact-customer-row span {
+  color: #46546b;
+  font-size: 12px;
+}
+
+.repeat-contact-customer-row strong {
+  color: #263244;
+  font-size: 12px;
+}
+
+/* Show more / Show less */
+
+.repeat-contact-more {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.repeat-contact-more .repeat-contact-list {
+  order: 1;
+  display: grid;
+  gap: 6px;
+  padding-top: 5px;
+}
+
+.repeat-contact-more summary {
+  order: 2;
+  display: block;
+  padding: 8px 0;
+  border: 0;
+  color: #dd5838;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  list-style: none;
+}
+
+.repeat-contact-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.repeat-contact-more summary::marker {
+  display: none;
+}
+
+.repeat-contact-more .show-more-label {
+  display: inline;
+}
+
+.repeat-contact-more .show-less-label {
+  display: none;
+}
+
+.repeat-contact-more[open] .show-more-label {
+  display: none;
+}
+
+.repeat-contact-more[open] .show-less-label {
+  display: inline;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .repeat-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

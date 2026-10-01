@@ -131,6 +131,15 @@ export interface DashboardMetrics {
   averageCsat: number | null;
 
   csatResponses: number;
+  repeatContactCustomers: number;
+  uniqueCustomers: number;
+  repeatContactRate: number;
+  repeatContactCustomerList: Array<{
+  customerId: string;
+  customerName: string;
+  ticketCount: number;
+}>;
+  
 
 
 
@@ -853,7 +862,55 @@ function buildProductPatterns(
     .slice(0, 5);
 
 }
+function createRepeatContactInsight(
+  tickets: Ticket[],
+  customers: SupportData["customers"]
+) {
+  const customerTicketCounts = new Map<string, number>();
 
+  for (const ticket of tickets) {
+    const customerId = ticket.customerId?.trim();
+
+    if (!customerId) continue;
+
+    customerTicketCounts.set(
+      customerId,
+      (customerTicketCounts.get(customerId) ?? 0) + 1
+    );
+  }
+
+  const customerNameMap = new Map(
+    customers.map((customer) => [customer.customerId, customer.name])
+  );
+
+  const uniqueCustomers = customerTicketCounts.size;
+
+  const repeatContactCustomers = Array.from(
+    customerTicketCounts.values()
+  ).filter((count) => count >= 2).length;
+
+  const repeatContactCustomerList = Array.from(
+    customerTicketCounts.entries()
+  )
+    .filter(([, count]) => count >= 2)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([customerId, ticketCount]) => ({
+      customerId,
+      customerName: customerNameMap.get(customerId) ?? "Unknown customer",
+      ticketCount,
+    }));
+
+  return {
+    repeatContactCustomers,
+    uniqueCustomers,
+    repeatContactRate:
+      uniqueCustomers > 0
+        ? repeatContactCustomers / uniqueCustomers
+        : 0,
+    repeatContactCustomerList,
+  };
+}
 export function calculateDashboardMetrics(
 
   data: SupportData,
@@ -866,11 +923,7 @@ export function calculateDashboardMetrics(
 
   const cleanTickets = deduplicateTickets(data.tickets);
 
-
-
   const availableDates = getAvailableWeeks(cleanTickets);
-
-
 
   if (availableDates.length === 0) {
 
@@ -911,6 +964,10 @@ export function calculateDashboardMetrics(
       averageCsat: null,
 
       csatResponses: 0,
+
+      repeatContactCustomers: 0,
+      uniqueCustomers: 0,
+      repeatContactRate: 0,
 
       topCategories: [],
 
@@ -1159,7 +1216,7 @@ export function calculateDashboardMetrics(
     averageCsat,
 
     csatResponses: csatScores.length,
-
+    ...createRepeatContactInsight(currentTickets, data.customers),
 
 
     topCategories: createCategoryInsights(

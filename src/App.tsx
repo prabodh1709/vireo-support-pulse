@@ -558,6 +558,7 @@ async function handleGenerateAiDigest() {
 
       </section>
 
+
 <section className="opportunity-card">
 
   <div>
@@ -567,14 +568,10 @@ async function handleGenerateAiDigest() {
     <h2>Reduce SLA-credit exposure</h2>
 
     <p>
-
-      At the current breach rate, reducing SLA breaches to the
-
-      proposed 6% target creates a measurable opportunity to reduce
-
-      quarterly SLA-credit exposure.
-
-    </p>
+         Reducing SLA breaches from the current rate to the proposed
+         6% target creates a forecasted reduction in quarterly
+         SLA-credit exposure.
+  </p>
 
   </div>
 
@@ -840,6 +837,132 @@ async function handleGenerateAiDigest() {
         </article>
 
       </section>
+
+      <section className="repeat-contact-card">
+  <div className="panel-heading">
+    <div>
+      <span className="eyebrow">REPEAT CONTACT SIGNAL</span>
+      <h2>Customers contacting support more than once</h2>
+    </div>
+
+    <span className="panel-note">
+      Selected period · deterministic proxy
+    </span>
+  </div>
+
+  <div className="repeat-contact-grid">
+    <div>
+      <span>Repeat-contact customers</span>
+      <strong>
+        {metrics.repeatContactCustomers.toLocaleString("en-IN")}
+      </strong>
+    </div>
+
+    <div>
+      <span>Repeat-contact rate</span>
+      <strong>
+        {(metrics.repeatContactRate * 100).toFixed(1)}%
+      </strong>
+    </div>
+
+    <div>
+      <span>Customers with tickets</span>
+      <strong>
+        {metrics.uniqueCustomers.toLocaleString("en-IN")}
+      </strong>
+    </div>
+  </div>
+<div className="repeat-contact-customer-list">
+  <div className="repeat-contact-list-heading">
+    <strong>Repeat-contact customers</strong>
+    <span>Top 3 shown</span>
+  </div>
+
+  {metrics.repeatContactCustomerList
+    .slice(0, 3)
+    .map((customer) => (
+      <div
+        className="repeat-contact-customer-row"
+        key={customer.customerId}
+      >
+        <span>
+  {(() => {
+    const matchedCustomer = data.customers.find((item) => {
+      const record = item as {
+        customerId?: string;
+        id?: string;
+        customer_id?: string;
+      };
+
+      return (
+        record.customerId ??
+        record.id ??
+        record.customer_id
+      )?.trim() === customer.customerId.trim();
+    });
+
+    return matchedCustomer?.name
+      ? `${matchedCustomer.name} (${customer.customerId})`
+      : customer.customerId;
+  })()}
+</span>
+        <strong>{customer.ticketCount} tickets</strong>
+      </div>
+    ))}
+
+  {metrics.repeatContactCustomerList.length > 3 && (
+  <details className="repeat-contact-more">
+    <div className="repeat-contact-list">
+      {metrics.repeatContactCustomerList.slice(3).map((customer) => (
+        <div
+          className="repeat-contact-customer-row"
+          key={customer.customerId}
+        >
+          <span>
+  {(() => {
+    const matchedCustomer = data.customers.find((item) => {
+      const record = item as {
+        customerId?: string;
+        id?: string;
+        customer_id?: string;
+      };
+
+      return (
+        record.customerId ??
+        record.id ??
+        record.customer_id
+      )?.trim() === customer.customerId.trim();
+    });
+
+    return matchedCustomer?.name
+      ? `${matchedCustomer.name} (${customer.customerId})`
+      : customer.customerId;
+  })()}
+</span>
+          <strong>{customer.ticketCount} tickets</strong>
+        </div>
+      ))}
+    </div>
+
+    <summary>
+      <span className="show-more-label">
+        Show {metrics.repeatContactCustomerList.length - 3} more
+      </span>
+
+      <span className="show-less-label">
+        Show less
+      </span>
+    </summary>
+  </details>
+)}
+</div>
+
+  <p className="trust-note">
+    Proxy signal: customers with 2+ tickets in the selected period.
+    Multiple tickets do not necessarily mean the same underlying issue.
+  </p>
+</section>
+
 
       <section className="product-pattern-card">
 
