@@ -419,18 +419,14 @@ async function handleGenerateAiDigest() {
             <span>Start date</span>
 
             <input
-
-              type="date"
-
-              value={effectiveStartDate}
-
-              onChange={(event) =>
-
-                handleStartDateChange(event.target.value)
-
-              }
-
-            />
+  type="date"
+  value={effectiveStartDate}
+  min="2025-01-01"
+  max="2026-06-30"
+  onChange={(event) =>
+    handleStartDateChange(event.target.value)
+  }
+/>
 
           </label>
 
@@ -441,20 +437,14 @@ async function handleGenerateAiDigest() {
             <span>End date</span>
 
             <input
-
-              type="date"
-
-              value={effectiveEndDate}
-
-              min={effectiveStartDate}
-
-              onChange={(event) =>
-
-                handleEndDateChange(event.target.value)
-
-              }
-
-            />
+  type="date"
+  value={effectiveEndDate}
+  min={effectiveStartDate || "2025-01-01"}
+  max="2026-06-30"
+  onChange={(event) =>
+    handleEndDateChange(event.target.value)
+  }
+/>
 
           </label>
 
